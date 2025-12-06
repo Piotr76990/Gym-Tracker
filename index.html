@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>GymTracker - Workout Planner</title>
+    <meta name="description" content="Aplikacja do planowania i śledzenia treningów. Twój osobisty asystent fitness." />
+    <meta name="author" content="GymTracker" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
+    
+    <!-- iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="GymTracker" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GymTracker - Workout Planner" />
+    <meta property="og:description" content="Aplikacja do planowania i śledzenia treningów" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/icon-512.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GymTracker" />
+    <parameter name="twitter:description" content="Aplikacja do planowania i śledzenia treningów" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.log('Service Worker registration failed', err));
+        });
+      }
+    </script>
+  </body>
+</html>
